@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="phoneMinus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phoneQnty" type="text" class="form-control text-center" value="1">
+                           <button id="phonePlus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="phonePrice">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="coverMinus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="coverQnty" type="text" class="form-control text-center" value="1">
+                           <button id="coverPlus" class="btn btn-default"><i  class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="coverPrice">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$1,278</h5>
+                        <h5>$0</h5>
+                        <h5>$1,278</h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <script>
+
+      // phonePlus button event handler
+      const addPhone= document.getElementById("phonePlus");
+      addPhone.addEventListener("click", function(){
+        const Qnty= document.getElementById("phoneQnty").value;
+        const QntyNumber= parseFloat(Qnty);
+        const addedQnty= QntyNumber + 1;
+        document.getElementById("phoneQnty").value= addedQnty;
+
+         const phonePrice= document.getElementById("phonePrice").innerText;
+         const phonePriceNumber= parseFloat(phonePrice);
+         
+         const addedPhonePrice=  addedQnty * 1219;
+         document.getElementById("phonePrice").innerText=addedPhonePrice;
+
+         
+        
+      })
+
+      //phoneMinus button event handler
+      const dedeuctPhone= document.getElementById("phoneMinus");
+      dedeuctPhone.addEventListener("click", function(){
+         const Qnty= document.getElementById("phoneQnty").value;
+         const QntyNumber= parseFloat(Qnty);
+         const deductedQnty= QntyNumber - 1;
+         document.getElementById("phoneQnty").value= deductedQnty;
+
+         const phonePrice= document.getElementById("phonePrice").innerText;
+         const phonePriceNumber= parseFloat(phonePrice);
+         
+         const deductedPhonePrice= deductedQnty * 1219;
+         document.getElementById("phonePrice").innerText= deductedPhonePrice;
+      })
+
+     //coverPlus button event handler
+
+      const addCover= document.getElementById("coverPlus");
+      addCover.addEventListener("click", function(){
+        const Qnty= document.getElementById("coverQnty").value;
+        const QntyNumber= parseFloat(Qnty);
+        const addedQnty= QntyNumber + 1;
+        document.getElementById("coverQnty").value= addedQnty;
+
+         const coverPrice= document.getElementById("coverPrice").innerText;
+         const coverPriceNumber= parseFloat(coverPrice);
+         
+         const addedCoverPrice=  addedQnty * 59;
+         document.getElementById("coverPrice").innerText=addedCoverPrice;
+      })
+
+      //coverMinus button event handler
+      const dedeuctCover= document.getElementById("coverMinus");
+      dedeuctCover.addEventListener("click", function(){
+         const Qnty= document.getElementById("coverQnty").value;
+         const QntyNumber= parseFloat(Qnty);
+         const deductedQnty= QntyNumber - 1;
+         document.getElementById("coverQnty").value= deductedQnty;
+
+         const coverPrice= document.getElementById("coverPrice").innerText;
+         const coverPriceNumber= parseFloat(coverPrice);
+         
+         const deductedCoverPrice= deductedQnty * 59;
+         document.getElementById("coverPrice").innerText= deductedCoverPrice;
+      })
+  
+      
+      
+      
+
+
+   </script>
+</body>
+
+</html>
